@@ -6,12 +6,14 @@ import TaskComponent from '../pure/taskComponent'
 function TaskListComponent(props) {
 
     const defaultTask = new Task('Task1','My first Task',false,LEVELS.NORMAL)
-    const [tasks, setTasks] = useState([defaultTask]);
+    const [tasks, setTasks] = useState([defaultTask])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         console.log('Tasks state has been modified')
+        setLoading(false)
         return () => {
-            console.log('TaskList component is poing to unmount...')
+            console.log('TaskList component is going to unmount...')
         }
     }, [tasks]);
 
