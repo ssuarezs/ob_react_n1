@@ -14,6 +14,7 @@ const ClockFuncional = () => {
     const tick = () => {
         setState((prevState) => {
             let edad = prevState.edad +1;
+            if (edad === 99) edad = 0
             return {
                 ...prevState,
                 fecha: new Date(),
