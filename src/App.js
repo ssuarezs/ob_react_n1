@@ -1,14 +1,16 @@
 import './App.css';
-import ClockFuncional from './hooks/lifeCycle/clockFuncional';
-//import TaskListComponent from './components/containers/taskListComponent';
+import TaskListComponent from './components/containers/taskListComponent';
+import TaskStyled from './components/pure/taskStyled';
+//import ClockFuncional from './hooks/lifeCycle/clockFuncional';
 
-        //<TaskListComponent></TaskListComponent>
+        //<ClockFuncional></ClockFuncional>
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ClockFuncional></ClockFuncional>
+        <TaskListComponent></TaskListComponent>
+        <TaskStyled name='San'></TaskStyled>
       </header>
     </div>
   );
