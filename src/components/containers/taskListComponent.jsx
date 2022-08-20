@@ -14,11 +14,6 @@ function TaskListComponent() {
     const [tasks, setTasks] = useState([defaultTask1,defaultTask2,defaultTask3])
     const [loading, setLoading] = useState(false)
 
-    const addTask = (newTask) => {
-        setTasks(prevTasks => [...prevTasks, newTask])
-    }
-
-
     useEffect(() => {
         console.log('Tasks state has been modified')
         setLoading(true)
@@ -27,11 +22,34 @@ function TaskListComponent() {
         }
     }, [tasks]);
 
+    const completeTask = (task) => {
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks]
+        tempTasks[index].completed = !tempTasks[index].completed
+        setTasks(tempTasks)
+    }
+
+    const deleteTask = (task) => {
+        console.log('Delete this task: ',task)
+        const index = tasks.indexOf(task)
+        const tempTasks = [...tasks]
+        tempTasks.splice(index,1)
+        setTasks(tempTasks)
+    }
+
+    const addTask = (task) => {
+        const tempTasks = [...tasks]
+        tempTasks.push(task)
+        setTasks(tempTasks)
+    }
+
     return (
         <div>
-            <div className='m-3'>
-                {loading ? 'Loaded' : 'Loading...' }
-            </div>
+            {loading ? null :
+                <div className='m-3'>
+                    'Loading...' 
+                </div>
+            }
             <div className='col-12'>
                 <div className='card'>
                     <div className='card-header p-3'>
@@ -52,6 +70,8 @@ function TaskListComponent() {
                                     <TaskComponent 
                                         key={index} 
                                         task={task}
+                                        complete={completeTask}
+                                        remove={deleteTask}
                                     />
                                 )}
                             </tbody>
@@ -59,7 +79,7 @@ function TaskListComponent() {
                     </div>
                 </div>
             </div>
-            <TaskForm></TaskForm>
+            <TaskForm add={addTask}/>
         </div>
     )
 }
