@@ -78,11 +78,6 @@ function TaskListComponent() {
 
     return (
         <div>
-            {loading ? null :
-                <div className='m-3'>
-                    'Loading...' 
-                </div>
-            }
             <div className='col-12'>
                 <div className='card'>
                     <div className='card-header p-3'>
