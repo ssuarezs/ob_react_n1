@@ -7,7 +7,9 @@ const LoginForm = () => {
             password: ''
         }
     ]
+
     const [credentials, setCredentials] = useState(initialCredentials);
+
     return (
         <div>
         </div>

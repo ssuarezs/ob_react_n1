@@ -1,5 +1,7 @@
 /**
 import ContactListComponent from './components/containers/contactListComponent';
+import LoginFormik from './components/pure/forms/loginFormik';
+import RegisterForm from './components/pure/forms/registerForm';
  */
 
 import TaskListComponent from './components/containers/taskListComponent';
@@ -9,10 +11,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TaskListComponent></TaskListComponent>
         {/**
-          <ContactListComponent></ContactListComponent>
-        */}
+        <LoginFormik></LoginFormik>
+        <RegisterForm></RegisterForm>
+         */}
+        <TaskListComponent></TaskListComponent>
       </header>
     </div>
   );

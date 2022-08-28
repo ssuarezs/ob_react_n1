@@ -12,11 +12,13 @@ function TaskListComponent() {
     const defaultTask3 = new Task('Task3','Discription3',false,LEVELS.BLOCKING)
 
     const [tasks, setTasks] = useState([defaultTask1,defaultTask2,defaultTask3])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         console.log('Tasks state has been modified')
-        setLoading(true)
+        setTimeout(()=>{
+            setLoading(false)
+        },2000)
         return () => {
             console.log('TaskList component is going to unmount...')
         }
@@ -42,6 +44,37 @@ function TaskListComponent() {
         tempTasks.push(task)
         setTasks(tempTasks)
     }
+    
+    const TaskTable = () => {
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'><span className='m-2'>Title</span></th>
+                        <th scope='col'><span className='m-2'>Description</span></th>
+                        <th scope='col'><span className='m-2'>Level</span></th>
+                        <th scope='col'><span className='m-2'>Actions</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tasks.map((task, index) => 
+                        <TaskComponent 
+                            key={index} 
+                            task={task}
+                            complete={completeTask}
+                            remove={deleteTask}
+                        />
+                    )}
+                </tbody>
+            </table>
+        )
+    }
+
+    const loadingStyle = {
+        color: 'grey',
+        fontSize: '30px',
+        fontWeigth: 'bold'
+    }
 
     return (
         <div>
@@ -56,26 +89,16 @@ function TaskListComponent() {
                         <h5>Your Tasks:</h5>
                     </div>
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={{ position: 'relative', heigth: '400px' }}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'><span className='m-2'>Title</span></th>
-                                    <th scope='col'><span className='m-2'>Description</span></th>
-                                    <th scope='col'><span className='m-2'>Level</span></th>
-                                    <th scope='col'><span className='m-2'>Actions</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tasks.map((task, index) => 
-                                    <TaskComponent 
-                                        key={index} 
-                                        task={task}
-                                        complete={completeTask}
-                                        remove={deleteTask}
-                                    />
-                                )}
-                            </tbody>
-                        </table>
+                        {/** TODO: add loading spinner */}
+                        {loading ? 
+                            <p style={loadingStyle}>Loading Tasks...</p>:
+                            tasks.length > 0 ?
+                                <TaskTable></TaskTable>:
+                                <div>
+                                    <h3>There are no task to show</h3>
+                                    <h4>Please, create one</h4>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>
