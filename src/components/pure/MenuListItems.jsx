@@ -26,7 +26,7 @@ const MenuListItems = ({list}) => {
     }
 
     return (
-        <List>
+        <List style={{ display: 'flex', flexDirection:'row'}}>
             {list.map(({text, path, icon}, index) => (
                 <ListItem key={index} button onClick={() => navigation(path)}>
                     <ListItemIcon>{getIcon(icon)}</ListItemIcon>

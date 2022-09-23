@@ -17,7 +17,7 @@ const Dashboard = () => {
     const list = [
         {text: 'HOME', icon: 'HOME', path:'/dashboard'},
         {text: 'SETT', icon: 'SETTINGS', path:'/dashboard'},
-        {text: 'TASKs', icon: 'TASKS', path:'/dashboard'},
+        {text: 'TASKs', icon: 'TASKS', path:'/tasks'},
         {text: 'LERO', icon: 'OTHER', path:'/dashboard'}
     ]
 

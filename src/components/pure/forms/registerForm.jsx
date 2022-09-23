@@ -61,28 +61,38 @@ const RegisterForm = () => {
                     handleChange,
                     handleBlur}) => (
                     <Form>
-                        <label htmlFor='username'>Username</label>
-                        <Field id='username' name='username' placeholder='user name'/>
-                        {errors.username && touched.username && 
-                            <ErrorMessage name='username' component='div'/>}
+                        <div>
+                            <label htmlFor='username'>Username</label>
+                            <Field id='username' name='username' placeholder='user name'/>
+                            {errors.username && touched.username && 
+                                <ErrorMessage name='username' component='div'/>}
+                        </div>
 
-                        <label htmlFor='email'>Email</label>
-                        <Field id='email' name='email' placeholder='Email' type='email'/>
-                        {errors.email && touched.email && 
-                            <ErrorMessage name='email' component='div'/>}
+                        <div>
+                            <label htmlFor='email'>Email</label>
+                            <Field id='email' name='email' placeholder='Email' type='email'/>
+                            {errors.email && touched.email && 
+                                <ErrorMessage name='email' component='div'/>}
+                        </div>
 
-                        <label htmlFor='password'>Password</label>
-                        <Field id='password' name='password' placeholder='password' type='password'/>
-                        {errors.password && touched.password && 
-                            <ErrorMessage name='password' component='div'/>}
+                        <div>
+                            <label htmlFor='password'>Password</label>
+                            <Field id='password' name='password' placeholder='password' type='password'/>
+                            {errors.password && touched.password && 
+                                <ErrorMessage name='password' component='div'/>}
+                        </div>
 
-                        <label htmlFor='confirm'>Confirm Password</label>
-                        <Field id='confirm' name='confirm' placeholder='confirm password' type='password'/>
-                        {errors.confirm && touched.confirm && 
-                            <ErrorMessage name='confirm' component='div'/>}
+                        <div>
+                            <label htmlFor='confirm'>Confirm Password</label>
+                            <Field id='confirm' name='confirm' placeholder='confirm password' type='password'/>
+                            {errors.confirm && touched.confirm && 
+                                <ErrorMessage name='confirm' component='div'/>}
+                        </div>
                         
-                        <button type='submit'>Register user</button>
-                        {isSubmitting ? <p>Your User is being registered</p>:null}
+                        <div>
+                            <button type='submit'>Register user</button>
+                            {isSubmitting ? <p>Your User is being registered</p>:null}
+                        </div>
                     </Form>
                 )}
             </Formik>

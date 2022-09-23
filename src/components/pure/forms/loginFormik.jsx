@@ -43,16 +43,22 @@ const LoginFormik = () => {
                     handleChange,
                     handleBlur}) => (
                         <Form>
-                            <label htmlFor='email'>Email</label>
-                            <Field id='email' name='email' placeholder='Email' type='email'/>
-                            <ErrorMessage name='email'/>
+                            <div>
+                                <label htmlFor='email'>Email</label>
+                                <Field id='email' name='email' placeholder='Email' type='email'/>
+                                <ErrorMessage name='email'/>
+                            </div>
 
-                            <label htmlFor='password'>Password</label>
-                            <Field id='password' name='password' placeholder='Password' type='password'/>
-                            <ErrorMessage name='password'/>
+                            <div>
+                                <label htmlFor='password'>Password</label>
+                                <Field id='password' name='password' placeholder='Password' type='password'/>
+                                <ErrorMessage name='password'/>
+                            </div>
 
-                            <button type='submit'>Login</button>
-                            {isSubmitting ? <p>Login your Credentials...</p>:null}
+                            <div>
+                                <button type='submit'>Login</button>
+                                {isSubmitting ? <p>Login your Credentials...</p>:null}
+                            </div>
                         </Form>
                     )
                 }
