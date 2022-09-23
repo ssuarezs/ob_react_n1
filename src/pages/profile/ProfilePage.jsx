@@ -5,7 +5,9 @@ const ProfilePage = ({user}) => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    console.log(location, navigate)
+    const {state} = location
+
+    console.log(state)
 
     const navigation = (path) => {
         navigate(path)
@@ -21,6 +23,7 @@ const ProfilePage = ({user}) => {
             <div>
                 <button onClick={goBack}>Go Back</button>
                 <button onClick={() => navigate('/tasks')}>Your Tasks</button>
+                <h3>{state.online ? 'online':'offline'}</h3>
             </div>
         </div>
     );

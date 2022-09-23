@@ -5,10 +5,12 @@ const HomePage = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    console.log(location, navigate)
+    console.log(location)
 
     const navigation = (path) => {
-        navigate(path)
+        navigate(path,
+            { state: {online: true} }
+        )
     }
     
     const goBack = () => {
