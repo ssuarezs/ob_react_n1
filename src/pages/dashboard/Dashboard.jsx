@@ -5,6 +5,8 @@ import { Button } from '@mui/material'
 
 import CopyRight from '../../components/pure/CopyRight';
 import MenuListItems from '../../components/pure/MenuListItems';
+import AsyncExample from '../../components/pure/asyncExample';
+import ObservableExample from '../../components/pure/observableExample';
 
 const Dashboard = () => {
 
@@ -25,6 +27,8 @@ const Dashboard = () => {
         <div>
             <Button variant="contained" onClick={logout}>Log out</Button>
             <MenuListItems list={list}/>
+            <AsyncExample></AsyncExample>
+            <ObservableExample></ObservableExample>
             <CopyRight/>
         </div>
     );

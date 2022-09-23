@@ -1,11 +1,9 @@
 import React from 'react';
-import { User } from '../../../models/user.class';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import { ROLES } from '../../../models/role.enum';
 
 const RegisterForm = () => {
-    let user = new User()
 
     const initialValues = {
         username: '',

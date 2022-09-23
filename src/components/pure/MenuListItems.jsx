@@ -16,9 +16,6 @@ const getIcon = (icon) => {
 }
 
 const MenuListItems = ({list}) => {
-
-    console.log(list)
-
     const navigate = useNavigate()
 
     const navigation = (path) => {
